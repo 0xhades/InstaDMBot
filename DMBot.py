@@ -295,14 +295,14 @@ class account:
                 printc('Logged In Successfully', colors.GREEN2)
             else: printc('Login failure, try again', colors.GREEN2); exit()
 
-        elif("Incorrect Username") in response.text:
-            printc("The username you entered doesn't appear to belong to an account. Please check your username and try again.", colors.RED)
+        elif "Incorrect Username" in response.text:
+            printc("The username you entered doesn't appear to belong to an account.", colors.RED)
             exit()
-        elif('Incorrect password') in response.text:
-            printc("The password you entered is incorrect. Please try again.", colors.RED)
+        elif 'Incorrect password' in response.text:
+            printc("The password you entered is incorrect.", colors.RED)
             exit()
-        elif ('inactive user') in response.text:
-            printc('Your account has been disabled for violating our terms. Learn how you may be able to restore your account.', colors.RED)
+        elif 'active user' in response.text:
+            printc('Your account has been disabled for violating instagtam's terms.', colors.RED)
             exit()
         else:
             printc(f'Unknown error: {response.text}', colors.RED)
