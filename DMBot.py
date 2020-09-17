@@ -1,4 +1,5 @@
 import requests, hashlib, string, random, uuid, time, calendar, re, json, urllib.parse
+from sys import platform 
 
 class colors:
 
@@ -46,6 +47,11 @@ class colors:
     BEIGEBG2  = '\33[106m'
     WHITEBG2  = '\33[107m'
 
+def escape(string):
+    if platform == "win32" or platform == "win64" or platform == "windows":
+        return string.replace('/', '\\')
+    else: return string
+    
 def printc(value, color='', nonewline=None, more=''):
 
     end = '\n'
@@ -456,7 +462,7 @@ if choice.lower() == 'u':
 else:
 
     later = True
-    f = open(inputc('Enter the path to file: ', colors.BLUE))
+    f = open(escape(inputc('Enter the path to file: ', colors.BLUE)))
     for i in f.readlines():
         valid = False
         user = i.replace(' ', '').replace('\n', '').replace('\r', '').strip()
@@ -483,7 +489,7 @@ if choice.lower() == 't':
 else:
     printc('every line has 1000 character limit', colors.YELLOW)
     printc('So if a line has more than 1000, I\'ll send the first 1000 character', colors.YELLOW)
-    f = open(inputc('Enter the path to file: ', colors.BLUE))
+    f = open(escape(inputc('Enter the path to file: ', colors.BLUE)))
     for i in f.readlines():
         line = i
         if len(line) > 1000: line = line[:1000] 
