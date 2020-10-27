@@ -308,7 +308,7 @@ class account:
             printc("The password you entered is incorrect.", colors.RED)
             exit()
         elif 'active user' in response.text:
-            printc('Your account has been disabled for violating instagtam's terms.', colors.RED)
+            printc('Your account has been disabled for violating instagtam\'s terms.', colors.RED)
             exit()
         else:
             printc(f'Unknown error: {response.text}', colors.RED)
